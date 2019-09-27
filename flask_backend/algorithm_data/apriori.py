@@ -1,13 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Date: Created on 2017-10-14 09:44am Thursday  
-Author: zhaopace@foxmail.com
-Description: 
-    An Effectively Python Implementation of Apriori Algorithm for Finding Frequent 
-    Sets and Association Rules   
-
-"""
-
 from collections import defaultdict
 import csv
 
@@ -19,12 +10,10 @@ class Apriori(object):
         self.minSupp = minSupp  # min support (used for mining frequent sets)
         self.minConf = minConf  # min confidence (used for mining association rules)
 
-    def fit(self, filePath):
+    def executeApriori(self, filePath):
         """ Run the apriori algorithm, return the frequent *-term sets. 
         """
         # Initialize some variables to hold the tmp result
-        print('-----------filePath-----------')
-        print(filePath)
         transListSet  = self.getTransListSet(filePath)   # get transactions (list that contain sets)
         itemSet       = self.getOneItemSet(transListSet) # get 1-item set
         itemCountDict = defaultdict(int)         # key=candiate k-item(k=1/2/...), value=count

@@ -25,10 +25,6 @@ current_file_name = ''
 
 def allowed_file(filename):
 	return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
-	
-@app.route('/')
-def upload_form():
-	return render_template('upload.html')
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
@@ -47,8 +43,8 @@ def upload_file():
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             current_file_name = filename
-            print('----current_file_name------')
-            print(current_file_name)
+            # print('----current_file_name------')
+            # print(current_file_name)
             itemListSet=set([])
 
             with open(os.path.join(app.config['UPLOAD_FOLDER'], filename), 'r') as file:
@@ -71,11 +67,10 @@ def upload_file():
 @app.route('/executeApriori', methods=['POST'])
 def execute_apriori():
     if request.method == 'POST':
-        print(request.form.get('support_val'))
-        print(request.form.get('confidence_val'))
-        print(request.form.get('rhsValue'))
-        print(request.form.get('filename'))
-
+        # print(request.form.get('support_val'))
+        # print(request.form.get('confidence_val'))
+        # print(request.form.get('rhsValue'))
+        # print(request.form.get('filename'))
 
         minSupp = float(request.form.get('support_val'))
         minConf = float(request.form.get('confidence_val'))
@@ -105,10 +100,10 @@ def execute_apriori():
         # freqSet is actually dictionary
         itemCountDict, freqSet = objApriori.fit(filePath)
 
-        print('------itemCountDict-------')
-        print(itemCountDict)
-        print('-------freqSet-----------')
-        print(freqSet)
+        # print('------itemCountDict-------')
+        # print(itemCountDict)
+        # print('-------freqSet-----------')
+        # print(freqSet)
         frequencyObj = {}
 
         for key, value in freqSet.items():

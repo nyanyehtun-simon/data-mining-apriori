@@ -1,9 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Mon Apr  9 10:05:45 2018
-
-@author: zbj
-"""
 
 from optparse import OptionParser    # parse command-line parameters
 from apriori import Apriori
@@ -56,12 +51,7 @@ if __name__ == '__main__':
 
     # Run and print
     objApriori = Apriori(minSupp, minConf)
-    itemCountDict, freqSet = objApriori.fit(filePath)
-
-    print('------itemCountDict-------')
-    print(itemCountDict)
-    print('-------freqSet-----------')
-    print(freqSet)
+    itemCountDict, freqSet = objApriori.executeApriori(filePath)
 
     for key, value in freqSet.items():
         print('frequent {}-term set:'.format(key))
