@@ -98,7 +98,7 @@ def execute_apriori():
         # Run and print
         objApriori = Apriori(minSupp, minConf)
         # freqSet is actually dictionary
-        itemCountDict, freqSet = objApriori.fit(filePath)
+        itemCountDict, freqSet = objApriori.executeApriori(filePath)
 
         # print('------itemCountDict-------')
         # print(itemCountDict)
