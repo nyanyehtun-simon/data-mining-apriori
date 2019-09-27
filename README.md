@@ -37,3 +37,7 @@ npm start
 ```
 
 ### Note: Frontend run on port 8000 by default and backend run on port 5000 by default.
+
+
+## Screenshops of working demo
+![](./demo_pics/gatsby-frontend.png)
