@@ -46,34 +46,16 @@ class Apriori(object):
     def getSpecRules(self, rhs):
         """ Specify a right item, construct rules for it
         """
-
-        print("rhs value passed inside getSpecRules: ")
-        print(rhs)
-        print('self.itemSet')
-        print(self.itemSet)
-
-
         allSets = set([])
         for key, value in self.freqSet.items():
             for item in value:
                 allSets = allSets.union(value)
 
-        print('allSets')
-        print(allSets)
-
-        
         if rhs not in allSets:
             print('Please input a term contain in the term-set !')
             return None
-
-        # found_item_in_term_list = False
-        # for key, value in self.freqSet.items():
-        #     if item in value:
-        #         if item == 
         
         rules = dict()
-        print('-------self.freqSet.items---------')
-        print(self.freqSet)
         for key, value in self.freqSet.items():
             for item in value:
                 if rhs.issubset(item) and len(item) > 1:
@@ -87,15 +69,10 @@ class Apriori(object):
                     
                     if conf >= self.minConf:
                         rules[item] = conf
-        print('--------rules---------')
-        print(rules)
         return rules
         
     
     def getSupport(self, item):
-        # print('inside getSupport -------------')
-        # print(item)
-        # print(self.itemCountDict[item])
         """ Get the support of item """
         return self.itemCountDict[item] / self.transLength
         
